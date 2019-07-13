@@ -1,6 +1,4 @@
-.countdown-timer {
-  color: white;
-  font-size: 16px;
-  padding-top: 8px;
-  border-radius: 15px;
+.badge-secondary {
+  background-color: #66bf0d;
+  margin-left: 5px;
 }
