@@ -15,13 +15,6 @@
       <a class="nav-item nav-link active" routerLink="/tree">Tree<span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link active" routerLink="/hashing">Hashing<span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link active" routerLink="/graph">Graph<span class="sr-only">(current)</span></a>
-      <div class="nav-item countdown-timer">
-        <label>Time Left - </label>
-        <countdown [config]="config"
-                   (start)="onStart()"
-                   (finished)="onFinished()"
-                   (notify)="onNotify($event)"></countdown>
-      </div>
     </div>
   </div>
 </nav>
