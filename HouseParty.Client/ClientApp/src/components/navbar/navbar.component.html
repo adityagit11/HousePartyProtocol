@@ -4,7 +4,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
+    <div class="navbar-nav nav-fill w-100">
       <a class="nav-item nav-link active" routerLink="/news">Latest News<span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link active" routerLink="/array">Array<span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link active" routerLink="/string">String<span class="sr-only">(current)</span></a>
@@ -15,6 +15,13 @@
       <a class="nav-item nav-link active" routerLink="/tree">Tree<span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link active" routerLink="/hashing">Hashing<span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link active" routerLink="/graph">Graph<span class="sr-only">(current)</span></a>
+      <div class="nav-item countdown-timer">
+        <label>Time Left - </label>
+        <countdown [config]="config"
+                   (start)="onStart()"
+                   (finished)="onFinished()"
+                   (notify)="onNotify($event)"></countdown>
+      </div>
     </div>
   </div>
 </nav>

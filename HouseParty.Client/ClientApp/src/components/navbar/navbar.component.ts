@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Config } from 'protractor';
 
 @Component({
   selector: 'app-navbar',
@@ -12,4 +13,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
+  config: Config = {
+    template: '$!h!:$!m!:$!s!'
+  }
 }
