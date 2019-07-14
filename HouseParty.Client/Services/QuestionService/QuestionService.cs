@@ -34,6 +34,7 @@ namespace HouseParty.Client.Services.QuestionService
             {
                 Title = viewModel.Title,
                 QuestionUrl = viewModel.QuestionUrl,
+                Notes = viewModel.Notes,
                 QuestionUploaded = DateTime.UtcNow,
                 QuestionType = viewModel.QuestionType
             };
