@@ -31,4 +31,8 @@ export class ApiService {
   submitAdityaSolution(questionId: number) {
     return this.httpClient.get(`${this.apiURL}/question/submitadityasolution/` + questionId);
   }
+
+  getScore(): Observable<number[]>{
+    return this.httpClient.get<number[]>(`${this.apiURL}/question/get/score`);
+  }
 }

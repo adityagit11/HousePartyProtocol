@@ -16,5 +16,7 @@ namespace HouseParty.Client.Services.QuestionService
         void SubmitAdityaSolution(int questionId);
 
         void WontDoThisQuestion(int questionId);
+
+        int[] GetScore();
     }
 }

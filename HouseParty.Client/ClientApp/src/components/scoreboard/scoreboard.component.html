@@ -1,1 +1,6 @@
-<p>scoreboard works!</p>
+<button type="button" class="btn btn-primary">
+  Shubhi
+  <span class="badge" [ngClass]="{'badge-success': shubhiScore>adiScore, 'badge-warning': shubhiScore==adiScore, 'badge-danger': shubhiScore<adiScore}">{{shubhiScore}}</span>
+  <span class="badge ml-2" [ngClass]="{'badge-success': shubhiScore<adiScore, 'badge-warning': shubhiScore==adiScore, 'badge-danger': shubhiScore>adiScore}">{{adiScore}}</span>
+  Aditya
+</button>

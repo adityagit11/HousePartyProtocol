@@ -124,5 +124,18 @@ namespace HouseParty.Client.Services.QuestionService
             this.questionRepository.Update(question);
             this.questionRepository.SaveChanges();
         }
+
+        public int[] GetScore()
+        {
+            int questionsShubhiSolved = this.questionRepository
+                .GetAll(x => x.WhetherShubhiSubmitted == true)
+                .Count();
+
+            int questionsAdiSolved = this.questionRepository
+                .GetAll(x => x.WhetherAdityaSubmitted == true)
+                .Count();
+
+            return new int[] { questionsShubhiSolved, questionsAdiSolved };
+        }
     }
 }

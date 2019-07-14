@@ -39,5 +39,9 @@ namespace HouseParty.Client.Controllers
         [HttpGet]
         [Route("wontdo/{questionId}")]
         public void WontDoThisQuestion(int questionId) => this.questionService.WontDoThisQuestion(questionId);
+
+        [HttpGet]
+        [Route("get/score")]
+        public int[] getScore() => this.questionService.GetScore();
     }
 }
