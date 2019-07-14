@@ -1,12 +1,15 @@
 <app-navbar></app-navbar>
 <div class="banner">
+  <div class="action">
+    <button type="button" class="btn btn-info" routerLink="/question-entry">
+      <img src="../../assets/icon_plus.png" />
+      Add Question
+    </button>
+  </div>
   <div class="message">
     <h1>
       <span class="badge badge-secondary">The key to success is to focus ON goals, NOT obstacles</span>
     </h1>
-  </div>
-  <div class="action">
-    <button type="button" class="btn btn-info" routerLink="/question-entry">Add Question</button>
   </div>
 </div>
 <h2><router-outlet></router-outlet></h2>

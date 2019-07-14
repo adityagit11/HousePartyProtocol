@@ -3,11 +3,21 @@
 }
 
   .banner .message {
-    float: left;
-    margin-left: 29%;
+    float: right;
+    margin-right: 29%;
   }
 
   .banner .action {
-    float: right;
-    margin: 10px 20px 0px 0px;
+    float: left;
+    margin: 12px 0px 0px 14px;
   }
+
+.action img {
+  width: 20px;
+  height: 20px;
+}
+
+.btn-info {
+  background-color: #2b5ece;
+  border-color: #1a4dbf;
+}
