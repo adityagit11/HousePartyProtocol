@@ -10,6 +10,7 @@ import { QueueComponent } from './queue/queue.component';
 import { TreeComponent } from './tree/tree.component';
 import { HashingComponent } from './hashing/hashing.component';
 import { GraphComponent } from './graph/graph.component';
+import { QuestiondataentryComponent } from './questiondataentry/questiondataentry.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'tree', component: TreeComponent },
   { path: 'hashing', component: HashingComponent },
   { path: 'graph', component: GraphComponent },
+  { path: 'question-entry', component: QuestiondataentryComponent },
 ];
 
 @NgModule({

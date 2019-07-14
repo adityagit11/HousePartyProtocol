@@ -1,8 +1,12 @@
+using HouseParty.Client.DataContext;
+using HouseParty.Client.Repositories.QuestionRepository;
+using HouseParty.Client.Services.QuestionService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -21,6 +25,12 @@ namespace HouseParty.Client
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddDbContext<HousePartyDataContext>(config => {
+                config.UseSqlServer(Configuration.GetSection("DatabaseConnectionString").Value);
+            });
+
+            this.InitializeServices(services);
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -65,6 +75,12 @@ namespace HouseParty.Client
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
+        }
+
+        public void InitializeServices(IServiceCollection services)
+        {
+            services.AddScoped<IQuestionRepository, QuestionRepository>();
+            services.AddScoped<IQuestionService, QuestionService>();
         }
     }
 }

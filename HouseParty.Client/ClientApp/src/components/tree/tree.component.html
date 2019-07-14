@@ -1,75 +1,50 @@
 <table class="table table-dark table-bordered">
   <thead>
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Problem Statement</th>
+      <th scope="col">Feeling lucky?</th>
       <th scope="col">URL</th>
-      <th scope="col">Status</th>
+      <th scope="col">Notes</th>
+      <th scope="col">Shubhi's Status</th>
+      <th scope="col">Aditya's Status</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Insertion in a Binary Tree in level order</td>
-      <td><a href="https://www.geeksforgeeks.org/insertion-in-a-binary-tree-in-level-order/">More Info</a></td>
+    <tr *ngFor="let question of questions">
       <td>
-        <button type="button" class="btn btn-danger">Not Done</button>
+        <ng-container *ngIf="question.wontDo; else WillDoThisQuestion">
+          <div style="text-decoration: line-through; text-decoration-color: red; text-decoration-style: solid;">
+            {{question.title}}
+          </div>
+        </ng-container>
+        <ng-template #WillDoThisQuestion>
+          {{question.title}}
+        </ng-template>
       </td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Deletion in a Binary Tree</td>
-      <td><a href="https://www.geeksforgeeks.org/deletion-binary-tree/">More Info</a></td>
       <td>
-        <button type="button" class="btn btn-danger">Not Done</button>
+        <button type="button" class="btn btn-wontdo" (click)="wontDoThisQuestion(question)">Won't Do</button>
       </td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Tree Traversals (Inorder, Preorder and Postorder)</td>
-      <td><a href="https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/">More Info</a></td>
+      <td><a href="{{question.questionUrl}}">Go to question's page</a></td>
+      <td>{{question.notes}}</td>
       <td>
-        <button type="button" class="btn btn-danger">Not Done</button>
+        <ng-container *ngIf="question.whetherShubhiSubmitted; else ShubhiNotSubmitted">
+          <button type="button" class="btn btn-success">Done</button>
+        </ng-container>
+        <ng-template #ShubhiNotSubmitted>
+          <div (click)="submitShubhiSolution(question)">
+            <button type="button" class="btn btn-danger">Not Done</button>
+          </div>
+        </ng-template>
       </td>
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td>Find n-th node of inorder traversal</td>
-      <td><a href="https://www.geeksforgeeks.org/find-n-th-node-inorder-traversal/">More Info</a></td>
       <td>
-        <button type="button" class="btn btn-danger">Not Done</button>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">5</th>
-      <td>Find n-th node in Postorder traversal of a Binary Tree</td>
-      <td><a href="https://www.geeksforgeeks.org/find-n-th-node-in-postorder-traversal-of-a-binary-tree/">More Info</a></td>
-      <td>
-        <button type="button" class="btn btn-danger">Not Done</button>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">6</th>
-      <td>Level Order Tree Traversal</td>
-      <td><a href="https://www.geeksforgeeks.org/level-order-tree-traversal/">More Info</a></td>
-      <td>
-        <button type="button" class="btn btn-danger">Not Done</button>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">7</th>
-      <td>Level order traversal in spiral form</td>
-      <td><a href="https://www.geeksforgeeks.org/level-order-traversal-in-spiral-form/">More Info</a></td>
-      <td>
-        <button type="button" class="btn btn-danger">Not Done</button>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">8</th>
-      <td>Level order traversal line by line | Set 3 (Using One Queue)</td>
-      <td><a href="https://www.geeksforgeeks.org/level-order-traversal-line-line-set-3-using-one-queue/">More Info</a></td>
-      <td>
-        <button type="button" class="btn btn-danger">Not Done</button>
+        <ng-container *ngIf="question.whetherAdityaSubmitted; else AdityaNotSubmitted">
+          <button type="button" class="btn btn-success">Done</button>
+        </ng-container>
+        <ng-template #AdityaNotSubmitted>
+          <div (click)="submitAdityaSolution(question)">
+            <button type="button" class="btn btn-danger">Not Done</button>
+          </div>
+        </ng-template>
       </td>
     </tr>
   </tbody>

@@ -1,0 +1,13 @@
+.banner {
+  text-align: center;
+}
+
+  .banner .message {
+    float: left;
+    margin-left: 45%;
+  }
+
+  .banner .action {
+    float: right;
+    margin: 10px 20px 0px 0px;
+  }

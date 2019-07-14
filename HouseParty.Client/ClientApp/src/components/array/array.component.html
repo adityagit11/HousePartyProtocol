@@ -1,51 +1,50 @@
 <table class="table table-dark table-bordered">
   <thead>
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Problem Statement</th>
+      <th scope="col">Feeling lucky?</th>
       <th scope="col">URL</th>
-      <th scope="col">Status</th>
+      <th scope="col">Notes</th>
+      <th scope="col">Shubhi's Status</th>
+      <th scope="col">Aditya's Status</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Program for array rotation</td>
-      <td><a href="https://www.geeksforgeeks.org/array-rotation/">More Info</a></td>
+    <tr *ngFor="let question of questions">
       <td>
-        <button type="button" class="btn btn-danger">Not Done</button>
+        <ng-container *ngIf="question.wontDo; else WillDoThisQuestion">
+          <div style="text-decoration: line-through; text-decoration-color: red; text-decoration-style: solid;">
+            {{question.title}}
+          </div>
+        </ng-container>
+        <ng-template #WillDoThisQuestion>
+          {{question.title}}
+        </ng-template>
       </td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Search an element in a sorted and rotated array</td>
-      <td><a href="https://www.geeksforgeeks.org/search-an-element-in-a-sorted-and-pivoted-array/">More Info</a></td>
       <td>
-        <button type="button" class="btn btn-danger">Not Done</button>
+        <button type="button" class="btn btn-wontdo" (click)="wontDoThisQuestion(question)">Won't Do</button>
       </td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Write a program to reverse an array or string</td>
-      <td><a href="https://www.geeksforgeeks.org/write-a-program-to-reverse-an-array-or-string/">More Info</a></td>
+      <td><a href="{{question.questionUrl}}">Go to question's page</a></td>
+      <td>{{question.notes}}</td>
       <td>
-        <button type="button" class="btn btn-danger">Not Done</button>
+        <ng-container *ngIf="question.whetherShubhiSubmitted; else ShubhiNotSubmitted">
+          <button type="button" class="btn btn-success">Done</button>
+        </ng-container>
+        <ng-template #ShubhiNotSubmitted>
+          <div (click)="submitShubhiSolution(question)">
+            <button type="button" class="btn btn-danger">Not Done</button>
+          </div>
+        </ng-template>
       </td>
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td>Move all zeroes to end of array</td>
-      <td><a href="https://www.geeksforgeeks.org/move-zeroes-end-array/">More Info</a></td>
       <td>
-        <button type="button" class="btn btn-danger">Not Done</button>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">5</th>
-      <td>Rearrange array such that even positioned are greater than odd</td>
-      <td><a href="https://www.geeksforgeeks.org/rearrange-array-such-that-even-positioned-are-greater-than-odd/">More Info</a></td>
-      <td>
-        <button type="button" class="btn btn-danger">Not Done</button>
+        <ng-container *ngIf="question.whetherAdityaSubmitted; else AdityaNotSubmitted">
+          <button type="button" class="btn btn-success">Done</button>
+        </ng-container>
+        <ng-template #AdityaNotSubmitted>
+          <div (click)="submitAdityaSolution(question)">
+            <button type="button" class="btn btn-danger">Not Done</button>
+          </div>
+        </ng-template>
       </td>
     </tr>
   </tbody>

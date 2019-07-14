@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app/app.component';
@@ -14,6 +16,8 @@ import { QueueComponent } from './queue/queue.component';
 import { TreeComponent } from './tree/tree.component';
 import { HashingComponent } from './hashing/hashing.component';
 import { GraphComponent } from './graph/graph.component';
+import { ApiService } from './services/api.service';
+import { QuestiondataentryComponent } from './questiondataentry/questiondataentry.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +32,16 @@ import { GraphComponent } from './graph/graph.component';
     QueueComponent,
     TreeComponent,
     HashingComponent,
-    GraphComponent
+    GraphComponent,
+    QuestiondataentryComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
