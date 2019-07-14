@@ -18,6 +18,7 @@ import { HashingComponent } from './hashing/hashing.component';
 import { GraphComponent } from './graph/graph.component';
 import { ApiService } from './services/api.service';
 import { QuestiondataentryComponent } from './questiondataentry/questiondataentry.component';
+import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { QuestiondataentryComponent } from './questiondataentry/questiondataentr
     TreeComponent,
     HashingComponent,
     GraphComponent,
-    QuestiondataentryComponent
+    QuestiondataentryComponent,
+    ScoreboardComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,10 @@
+.navbar {
+  background-color: #383838;
+  -webkit-box-shadow: 0px 1px 1px #de1dde;
+  -moz-box-shadow: 0px 1px 1px #de1dde;
+  box-shadow: 0px 1px 10px #22252f;
+}
+
 .badge-secondary {
   background-color: #66bf0d;
   margin-left: 5px;
